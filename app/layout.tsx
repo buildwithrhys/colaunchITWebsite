@@ -5,13 +5,15 @@ import './globals.css'
 const bricolageGrotesque = Bricolage_Grotesque({ 
   subsets: ['latin'],
   variable: '--font-bricolage-grotesque',
-  display: 'swap'
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif']
 })
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap'
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif']
 })
 
 export const metadata: Metadata = {
