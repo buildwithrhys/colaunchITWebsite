@@ -6,7 +6,8 @@ const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
   variable: '--font-bricolage-grotesque',
   display: 'swap',
-  fallback: ['system-ui', 'sans-serif']
+  fallback: ['system-ui', 'sans-serif'],
+  adjustFontFallback: false
 })
 
 const inter = Inter({ 
@@ -17,6 +18,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ashy-ocean-08bfac603.1.azurestaticapps.net'),
   title: 'coLaunch IT - Modern IT Solutions & Digital Transformation',
   description: 'coLaunch IT provides cutting-edge IT solutions, digital transformation services, and technology consulting to help businesses thrive in the digital age.',
   keywords: 'IT solutions, digital transformation, technology consulting, software development, cloud services',
