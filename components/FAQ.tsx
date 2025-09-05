@@ -36,11 +36,11 @@ const FAQ = () => {
       questions: [
         {
           question: 'How does your protection compare to traditional antivirus like McAfee?',
-          answer: 'Traditional antivirus (like McAfee) is reactive - it waits for known viruses to be identified and added to a database. Our AI-powered SentinelOne solution is proactive - it identifies and blocks both known and unknown threats in real-time. Think of McAfee like a basic burglar alarm that rings if someone breaks in, but doesn\'t stop them. SentinelOne is like having a 24/7 security guard who can spot suspicious behavior, stop the intruder, and even clean up any mess they\'ve made.'
+          answer: 'Traditional antivirus (like McAfee) is reactive - it waits for known viruses to be identified and added to a database. Our AI-powered SentinelOne solution is proactive - it identifies and blocks both known and unknown threats in real-time. Think of McAfee like a basic burglar alarm that rings if someone breaks in, but doesn\'t stop them. SentinelOne is like having a 24/7 security guard who can spot suspicious behaviour, stop the intruder, and even clean up any mess they\'ve made.'
         },
         {
-          question: 'What if I have more computers than licenses?',
-          answer: 'If you have 7 machines but only 1 license (like in Cruise Plan), you\'ll need additional licenses at £15 per month per machine. For 7 machines, that would be £219 total (£129 base + £90 for 6 additional licenses). We recommend one license per person for best protection.'
+          question: 'What if I have more computers than licences?',
+          answer: 'If you have 7 machines but only 1 licence (like in Cruise Plan), you\'ll need additional licences at £15 per month per machine. For 7 machines, that would be £219 total (£129 base + £90 for 6 additional licences). We recommend one licence per person for best protection.'
         },
         {
           question: 'What\'s included in the security protection?',
@@ -57,8 +57,8 @@ const FAQ = () => {
           answer: 'Weak or reused passwords are one of the most common ways hackers gain access to business systems. Our secure password manager creates and stores strong, unique passwords for each team member, makes logins faster and safer across all systems, and reduces the chance of a breach caused by stolen or compromised passwords.'
         },
         {
-          question: 'How many password manager licenses do I get?',
-          answer: 'Cruise Plan includes 1 license, Overdrive includes 2 licenses. Additional licenses are available if needed. We recommend one license per person so everyone\'s credentials are properly secured.'
+          question: 'How many password manager licences do I get?',
+          answer: 'Cruise Plan includes 1 licence, Overdrive includes 2 licences. Additional licences are available if needed. We recommend one licence per person so everyone\'s credentials are properly secured.'
         }
       ]
     },
@@ -72,11 +72,11 @@ const FAQ = () => {
         },
         {
           question: 'Is pricing per user or flat rate?',
-          answer: 'Pricing is flat monthly fee, not per user. Cruise Plan is £129/month covering up to 10 users, Overdrive is £249/month covering 10+ users. Additional security licenses are charged separately if you need more than what\'s included.'
+          answer: 'Pricing is flat monthly fee, not per user. Cruise Plan is £129/month covering up to 10 users, Overdrive is £249/month covering 10+ users. Additional security licences are charged separately if you need more than what\'s included.'
         },
         {
           question: 'What\'s the difference between Cruise and Overdrive?',
-          answer: 'Overdrive includes everything from Cruise, plus: up to 15 managed email signatures (vs 10), two password manager licenses (vs 1), two AI-powered threat protection licenses (vs 1), enhanced threat detection with real-time response, and deep security reviews with continuous security scoring.'
+          answer: 'Overdrive includes everything from Cruise, plus: up to 15 managed email signatures (vs 10), two password manager licences (vs 1), two AI-powered threat protection licences (vs 1), enhanced threat detection with real-time response, and deep security reviews with continuous security scoring.'
         }
       ]
     }

@@ -376,7 +376,7 @@ const Services = () => {
               </ul>
               <div className="mt-6 p-4 bg-primary-50 rounded-lg">
                 <p className="text-primary-800 font-medium text-sm">
-                  <strong>SentinelOne is like having a 24/7 security guard:</strong> Spots suspicious behavior, stops intruders, and cleans up any mess they've made.
+                  <strong>SentinelOne is like having a 24/7 security guard:</strong> Spots suspicious behaviour, stops intruders, and cleans up any mess they've made.
                 </p>
               </div>
             </div>

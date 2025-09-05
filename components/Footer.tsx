@@ -38,7 +38,7 @@ const Footer = () => {
       'Whitepapers',
       'Webinars',
       'Documentation',
-      'Support Center',
+      'Support Centre',
       'API Reference',
       'Developer Tools'
     ],
