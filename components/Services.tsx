@@ -29,7 +29,7 @@ const Services = () => {
         'Includes one secure password manager app for safer logins',
         'Fast, friendly support from our expert team'
       ],
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-blue-400 to-blue-500'
     },
     {
       name: 'Cruise',
@@ -45,7 +45,7 @@ const Services = () => {
         'Dark web monitoring with alerts',
         'Regular security reviews and compliance monitoring'
       ],
-      color: 'from-green-500 to-green-600'
+      color: 'from-indigo-600 to-purple-500'
     },
     {
       name: 'Overdrive',
@@ -79,7 +79,7 @@ const Services = () => {
         'Proactive support, system optimisation, and vendor management',
         'Fully managed IT planning, delivery, and improvement'
       ],
-      color: 'from-red-500 to-red-600'
+      color: 'from-purple-800 to-violet-900'
     }
   ]
 
@@ -123,7 +123,7 @@ const Services = () => {
   }
 
   return (
-    <section id="services" className="section-padding bg-gray-50">
+    <section id="services" className="section-padding bg-gray-900">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -137,12 +137,15 @@ const Services = () => {
             <Zap className="w-4 h-4" />
             <span>Our Services</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             IT Subscriptions & Solutions
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-4">
             Choose the perfect IT management plan for your business. Plans are automatically tiered based on user count - 
-            any staff member with a company login counts as a user. <strong>You must upgrade to the next tier when you exceed the user limit.</strong>
+            any staff member with a company login counts as a user.
+          </p>
+          <p className="text-lg text-gray-200 max-w-3xl mx-auto mb-8 font-medium">
+            <strong>You will be upgraded to the next tier when you exceed the user limit.</strong>
           </p>
           
           {/* IT Management Explanation */}
@@ -151,11 +154,28 @@ const Services = () => {
               <Users className="w-8 h-8" />
               <h3 className="text-2xl font-bold">What Are IT Management Services?</h3>
             </div>
-            <p className="text-primary-100 text-lg leading-relaxed mb-6">
-              You have a dedicated team monitoring, helping, and advising on your IT - just like how you call us for Garage Hive support. 
-              We monitor your computers' performance, carry out maintenance tasks to ensure they run optimally and last as long as possible, 
-              advise on replacements, and help sort out any IT-related issues in your business.
-            </p>
+            <ul className="text-primary-100 text-lg leading-relaxed mb-6 space-y-3">
+              <li className="flex items-start">
+                <span className="text-primary-300 mr-3 mt-1">•</span>
+                <span>You have a dedicated team monitoring, helping, and advising on your IT - just like Garage Hive support</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary-300 mr-3 mt-1">•</span>
+                <span>We monitor your computers' performance</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary-300 mr-3 mt-1">•</span>
+                <span>We carry out maintenance tasks to ensure they run optimally and last as long as possible</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary-300 mr-3 mt-1">•</span>
+                <span>We advise on replacements</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-primary-300 mr-3 mt-1">•</span>
+                <span>We help resolve any IT-related issues</span>
+              </li>
+            </ul>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
@@ -199,7 +219,12 @@ const Services = () => {
                 key={index}
                 variants={cardVariants}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 relative overflow-hidden"
+                className={`rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden ${
+                  tier.name === 'Ignition' ? 'bg-gradient-to-br from-blue-50 to-blue-100' :
+                  tier.name === 'Cruise' ? 'bg-gradient-to-br from-indigo-50 to-purple-100' :
+                  tier.name === 'Overdrive' ? 'bg-gradient-to-br from-purple-100 to-purple-200' :
+                  'bg-gradient-to-br from-purple-200 to-violet-300'
+                }`}
               >
                 {/* Gradient Background */}
                 <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${tier.color}`}></div>
@@ -215,7 +240,7 @@ const Services = () => {
                   {/* Features */}
                   <ul className="space-y-3 mb-6">
                     {tier.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start text-sm text-gray-600">
+                      <li key={featureIndex} className="flex items-start text-sm text-gray-700">
                         <CheckCircle className="w-4 h-4 text-primary-500 mt-0.5 mr-3 flex-shrink-0" />
                         <span>{feature}</span>
                       </li>
@@ -253,7 +278,7 @@ const Services = () => {
                 key={index}
                 variants={cardVariants}
                 whileHover={{ y: -5 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                className="bg-gradient-to-br from-indigo-50 via-purple-100 to-purple-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
                   {/* Icon */}
@@ -306,115 +331,85 @@ const Services = () => {
           <h3 className="text-2xl font-bold text-gray-900 text-center mb-12">
             Why Our Protection Beats Traditional Antivirus
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Traditional Antivirus */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-red-600" />
+          <div className="bg-gradient-to-r from-indigo-50 via-purple-100 to-purple-200 rounded-2xl p-8 shadow-lg">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Traditional Antivirus */}
+              <div className="flex flex-col h-full">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-red-600" />
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900">Traditional Antivirus (e.g., McAfee)</h4>
                 </div>
-                <h4 className="text-xl font-bold text-gray-900">Traditional Antivirus (e.g., McAfee)</h4>
+                <ul className="space-y-4 flex-grow">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Reactive only – waits for known viruses to be identified</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Won't catch new or advanced threats</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Requires manual updates to stay current</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">No automatic response – relies on you to take action</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Limited visibility into what's happening</span>
+                  </li>
+                </ul>
+                <div className="mt-auto p-4 bg-red-50 rounded-lg">
+                  <p className="text-red-800 font-medium text-sm">
+                    <strong>Think of McAfee like a basic burglar alarm:</strong> It rings if someone breaks in, but doesn't stop them.
+                  </p>
+                </div>
               </div>
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Reactive only – waits for known viruses to be identified</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Won't catch new or advanced threats</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Requires manual updates to stay current</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">No automatic response – relies on you to take action</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Limited visibility into what's happening</span>
-                </li>
-              </ul>
-              <div className="mt-6 p-4 bg-red-50 rounded-lg">
-                <p className="text-red-800 font-medium text-sm">
-                  <strong>Think of McAfee like a basic burglar alarm:</strong> It rings if someone breaks in, but doesn't stop them.
-                </p>
-              </div>
-            </div>
 
-            {/* Our Solution */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-primary-600" />
+              {/* Our Solution */}
+              <div className="flex flex-col h-full">
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <h4 className="text-xl font-bold text-gray-900">Our Solution (SentinelOne)</h4>
                 </div>
-                <h4 className="text-xl font-bold text-gray-900">Our Solution (SentinelOne)</h4>
-              </div>
-              <ul className="space-y-4">
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">AI-powered, proactive protection – identifies unknown threats in real-time</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Stops advanced attacks like ransomware before they cause damage</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Monitors every company computer 24/7 for unusual activity</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Automatic response and rollback – can undo malicious changes instantly</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-600">Full visibility with detailed reports and alerts</span>
-                </li>
-              </ul>
-              <div className="mt-6 p-4 bg-primary-50 rounded-lg">
-                <p className="text-primary-800 font-medium text-sm">
-                  <strong>SentinelOne is like having a 24/7 security guard:</strong> Spots suspicious behaviour, stops intruders, and cleans up any mess they've made.
-                </p>
+                <ul className="space-y-4 flex-grow">
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">AI-powered, proactive protection – identifies unknown threats in real-time</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Stops advanced attacks like ransomware before they cause damage</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Monitors every company computer 24/7 for unusual activity</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Automatic response and rollback – can undo malicious changes instantly</span>
+                  </li>
+                  <li className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-gray-600">Full visibility with detailed reports and alerts</span>
+                  </li>
+                </ul>
+                <div className="mt-auto p-4 bg-primary-50 rounded-lg">
+                  <p className="text-primary-800 font-medium text-sm">
+                    <strong>SentinelOne is like having a 24/7 security guard:</strong> Spots suspicious behaviour, stops intruders, and cleans up any mess they've made.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* User Definition */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-center text-white"
-        >
-          <h3 className="text-2xl font-bold mb-4">Important: User Limits Are Mandatory</h3>
-          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            <strong>You must upgrade to the next tier when you exceed the user limit.</strong> For example, if you have 6 users, 
-            you must be on the Cruise plan (£129/month), not Ignition (£65/month).
-          </p>
-          <h4 className="text-lg font-semibold mb-4">What Counts as a User?</h4>
-          <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-            Any staff member who has a company login — for example, to access email, shared drives, or log into a work computer.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5" />
-              <span>Email access</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Database className="w-5 h-5" />
-              <span>Shared drives</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Monitor className="w-5 h-5" />
-              <span>Work computer login</span>
-            </div>
-          </div>
-        </motion.div>
 
         {/* CTA Section */}
         <motion.div
@@ -424,7 +419,7 @@ const Services = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center mt-16"
         >
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg border border-gray-100">
+          <div className="bg-gradient-to-br from-indigo-50 via-purple-100 to-purple-200 rounded-2xl p-8 md:p-12 shadow-lg">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Ready to Transform Your IT Management?
             </h3>

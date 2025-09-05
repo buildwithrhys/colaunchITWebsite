@@ -59,7 +59,7 @@ const Testimonials = () => {
   }
 
   return (
-    <section id="testimonials" className="section-padding bg-gray-50">
+    <section id="testimonials" className="section-padding bg-gradient-to-b from-gray-800 via-gray-800 to-gray-900">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div

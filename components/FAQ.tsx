@@ -104,7 +104,7 @@ const FAQ = () => {
   }
 
   return (
-    <section id="faq" className="section-padding bg-gradient-to-br from-secondary-50 to-primary-50">
+    <section id="faq" className="section-padding bg-gray-900">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div

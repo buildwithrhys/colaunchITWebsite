@@ -2,96 +2,210 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Play, ChevronDown, Shield, Users, Zap, Target, Heart } from 'lucide-react'
-
 const Hero = () => {
+
   const scrollToServices = () => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
+    document.getElementById('services')?.scrollIntoView({ behaviour: 'smooth' })
   }
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-secondary-900 via-primary-800 to-primary-950 overflow-hidden">
-      {/* Cyber-spacey Background Elements */}
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-800 overflow-hidden">
+      {/* Dynamic Background with Mouse Interaction */}
       <div className="absolute inset-0">
-        {/* Floating geometric shapes */}
-        <div className="absolute top-20 left-20 w-72 h-72 bg-primary-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary-400/15 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-600/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        {/* Base Dark Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-blue-900 to-indigo-800"></div>
         
-        {/* Cyber grid pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="w-full h-full" style={{
-            backgroundImage: `
-              linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '50px 50px'
-          }}></div>
-        </div>
         
-        {/* Circuit board graphics */}
-        <div className="absolute top-20 right-20 opacity-20">
-          <svg width="200" height="150" viewBox="0 0 200 150" className="text-primary-400">
+
+        {/* Twinkling Starfield */}
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={`star-${i}`}
+            className="absolute rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: Math.random() * 3 + 1,
+              height: Math.random() * 3 + 1,
+            }}
+            animate={{
+              opacity: [0, 1, 0],
+              scale: [0.5, 1.5, 0.5],
+            }}
+            transition={{
+              duration: Math.random() * 3 + 1,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 2,
+            }}
+          >
+            <div 
+              className="w-full h-full rounded-full"
+              style={{
+                background: Math.random() > 0.7 
+                  ? '#ffffff' 
+                  : Math.random() > 0.4 
+                    ? '#e0e7ff' 
+                    : '#c7d2fe'
+              }}
+            />
+          </motion.div>
+        ))}
+
+        {/* Larger Twinkling Stars */}
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={`big-star-${i}`}
+            className="absolute rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: Math.random() * 4 + 2,
+              height: Math.random() * 4 + 2,
+            }}
+            animate={{
+              opacity: [0.3, 1, 0.3],
+              scale: [0.8, 1.8, 0.8],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: Math.random() * 4 + 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: Math.random() * 3,
+            }}
+          >
+            <div 
+              className="w-full h-full rounded-full"
+              style={{
+                background: Math.random() > 0.6 
+                  ? '#fbbf24' 
+                  : Math.random() > 0.3 
+                    ? '#ffffff' 
+                    : '#dbeafe'
+              }}
+            />
+          </motion.div>
+        ))}
+
+
+
+        {/* Floating Astronaut with Umbilical Cord */}
+        <motion.div
+          className="absolute top-1/4 right-1/4 z-20"
+          initial={{ x: 0, y: 0, rotate: 0 }}
+          animate={{ 
+            x: [0, 20, -15, 10, 0],
+            y: [0, -30, 20, -10, 0],
+            rotate: [0, 5, -3, 2, 0]
+          }}
+          transition={{ 
+            duration: 15, 
+            repeat: Infinity, 
+            ease: "easeInOut" 
+          }}
+        >
+          {/* Umbilical Cord */}
+          <motion.svg
+            width="200"
+            height="300"
+            viewBox="0 0 200 300"
+            className="absolute -top-40 -left-20"
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2, delay: 1 }}
+          >
             <defs>
-              <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="cordGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#5b2fd1" />
-                <stop offset="100%" stopColor="#6320ee" />
-              </linearGradient>
-            </defs>
-            <path d="M20,20 L80,20 L80,40 L120,40 L120,60 L160,60 L160,80 L180,80" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" />
-            <path d="M40,60 L100,60 L100,100 L140,100 L140,120 L180,120" stroke="url(#circuitGradient)" strokeWidth="2" fill="none" />
-            <circle cx="20" cy="20" r="3" fill="url(#circuitGradient)" />
-            <circle cx="80" cy="20" r="3" fill="url(#circuitGradient)" />
-            <circle cx="120" cy="40" r="3" fill="url(#circuitGradient)" />
-            <circle cx="160" cy="60" r="3" fill="url(#circuitGradient)" />
-            <circle cx="180" cy="80" r="3" fill="url(#circuitGradient)" />
-            <circle cx="40" cy="60" r="3" fill="url(#circuitGradient)" />
-            <circle cx="100" cy="100" r="3" fill="url(#circuitGradient)" />
-            <circle cx="140" cy="120" r="3" fill="url(#circuitGradient)" />
-            <circle cx="180" cy="120" r="3" fill="url(#circuitGradient)" />
-          </svg>
-        </div>
-        
-        <div className="absolute bottom-32 left-16 opacity-15">
-          <svg width="150" height="120" viewBox="0 0 150 120" className="text-primary-300">
-            <defs>
-              <linearGradient id="circuitGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#602ca6" />
+                <stop offset="50%" stopColor="#6320ee" />
                 <stop offset="100%" stopColor="#5b2fd1" />
               </linearGradient>
             </defs>
-            <path d="M10,30 L60,30 L60,50 L100,50 L100,70 L130,70" stroke="url(#circuitGradient2)" strokeWidth="2" fill="none" />
-            <path d="M30,70 L80,70 L80,90 L120,90" stroke="url(#circuitGradient2)" strokeWidth="2" fill="none" />
-            <circle cx="10" cy="30" r="2" fill="url(#circuitGradient2)" />
-            <circle cx="60" cy="30" r="2" fill="url(#circuitGradient2)" />
-            <circle cx="100" cy="50" r="2" fill="url(#circuitGradient2)" />
-            <circle cx="130" cy="70" r="2" fill="url(#circuitGradient2)" />
-            <circle cx="30" cy="70" r="2" fill="url(#circuitGradient2)" />
-            <circle cx="80" cy="90" r="2" fill="url(#circuitGradient2)" />
-          </svg>
-        </div>
-        
-        {/* Floating particles */}
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary-400 rounded-full animate-bounce" style={{animationDelay: '0.5s'}}></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-primary-300 rounded-full animate-bounce" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-primary-500 rounded-full animate-bounce" style={{animationDelay: '2.5s'}}></div>
-        
-        {/* Geometric patterns */}
-        <div className="absolute top-1/3 right-1/4 opacity-10">
-          <div className="w-32 h-32 border border-primary-400 rotate-45 animate-spin" style={{animationDuration: '20s'}}></div>
-        </div>
-        
-        <div className="absolute bottom-1/4 left-1/3 opacity-15">
-          <div className="w-24 h-24 border-2 border-primary-300 rounded-full animate-pulse"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 border border-primary-500 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-        </div>
-        
-        {/* Abstract wavy lines */}
-        <div className="absolute top-1/2 left-1/6 opacity-20">
-          <svg width="100" height="60" viewBox="0 0 100 60" className="text-primary-400">
-            <path d="M0,30 Q25,10 50,30 T100,30" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.6" />
-            <path d="M0,40 Q25,20 50,40 T100,40" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.4" />
-          </svg>
-        </div>
+            <motion.path
+              d="M100,0 Q120,50 100,100 Q80,150 100,200 Q120,250 100,300"
+              stroke="url(#cordGradient)"
+              strokeWidth="3"
+              fill="none"
+              strokeDasharray="5,5"
+              animate={{ strokeDashoffset: [0, -20] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
+            {/* Cord attachment points */}
+            <circle cx="100" cy="0" r="3" fill="#6320ee" />
+            <circle cx="100" cy="300" r="3" fill="#6320ee" />
+          </motion.svg>
+
+          {/* Astronaut */}
+          <motion.div
+            className="relative"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Astronaut Helmet */}
+            <div className="w-16 h-16 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full border-4 border-white shadow-lg relative">
+              {/* Helmet Visor */}
+              <div className="absolute inset-2 bg-gradient-to-br from-blue-400/30 to-purple-400/30 rounded-full border border-white/50"></div>
+              {/* Helmet Reflection */}
+              <div className="absolute top-2 left-3 w-4 h-2 bg-white/40 rounded-full blur-sm"></div>
+            </div>
+            
+            {/* Astronaut Body */}
+            <div className="absolute top-12 left-1/2 transform -translate-x-1/2 w-12 h-16 bg-gradient-to-br from-gray-300 to-gray-400 rounded-lg shadow-lg">
+              {/* Control Panel */}
+              <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-8 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded border border-white/30">
+                <div className="flex justify-center items-center h-full">
+                  <div className="w-1 h-1 bg-green-400 rounded-full animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Arms */}
+            <div className="absolute top-14 -left-2 w-3 h-8 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full transform rotate-12"></div>
+            <div className="absolute top-14 -right-2 w-3 h-8 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full transform -rotate-12"></div>
+            
+            {/* Legs */}
+            <div className="absolute top-24 left-1/2 transform -translate-x-1/2 w-2 h-6 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full"></div>
+            <div className="absolute top-24 left-1/2 transform -translate-x-1/2 w-2 h-6 bg-gradient-to-br from-gray-300 to-gray-400 rounded-full ml-2"></div>
+            
+            {/* Jetpack */}
+            <div className="absolute top-16 -right-4 w-6 h-8 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg shadow-lg">
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-2 h-4 bg-gradient-to-t from-orange-400 to-yellow-400 rounded-full">
+                <motion.div
+                  className="w-full h-full bg-gradient-to-t from-orange-400 to-yellow-400 rounded-full"
+                  animate={{ scaleY: [1, 1.5, 1] }}
+                  transition={{ duration: 0.5, repeat: Infinity }}
+                ></motion.div>
+              </div>
+            </div>
+            
+            {/* Floating Stars around Astronaut */}
+            <motion.div
+              className="absolute -top-8 -left-8 w-2 h-2 bg-white rounded-full"
+              animate={{ 
+                opacity: [0.3, 1, 0.3],
+                scale: [0.8, 1.2, 0.8]
+              }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0 }}
+            ></motion.div>
+            <motion.div
+              className="absolute -top-4 -right-6 w-1 h-1 bg-yellow-300 rounded-full"
+              animate={{ 
+                opacity: [0.5, 1, 0.5],
+                scale: [0.6, 1.4, 0.6]
+              }}
+              transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
+            ></motion.div>
+            <motion.div
+              className="absolute -bottom-6 -left-4 w-1.5 h-1.5 bg-blue-300 rounded-full"
+              animate={{ 
+                opacity: [0.4, 1, 0.4],
+                scale: [0.7, 1.3, 0.7]
+              }}
+              transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
+            ></motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className="container-custom relative z-10">
@@ -103,27 +217,62 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            <span className="block text-2xl md:text-3xl lg:text-4xl font-medium text-primary-300 mb-2 tracking-wider">
+            <motion.span 
+              className="block text-2xl md:text-3xl lg:text-4xl font-medium text-primary-300 mb-2 tracking-wider"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               WELCOME TO
-            </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tight">
+            </motion.span>
+            <motion.span 
+              className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tight"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+            >
               PERFORMANCE
-            </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4">
+            </motion.span>
+            <motion.span 
+              className="block text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-4"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+            >
               ON PURPOSE
-            </span>
-            <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-primary-200 italic">
+            </motion.span>
+            <motion.span 
+              className="block text-xl md:text-2xl lg:text-3xl font-medium text-yellow-100 italic mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+            >
               Save Money, Same Excellence
-            </span>
+            </motion.span>
           </motion.h1>
 
-          {/* Gradient separator line */}
+          {/* Enhanced Gradient separator line */}
           <motion.div
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="w-32 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto mb-8"
-          ></motion.div>
+            className="relative mx-auto mb-8"
+          >
+            <div className="w-32 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto"></div>
+            <motion.div
+              className="absolute inset-0 w-32 h-1 bg-gradient-to-r from-primary-400 to-primary-600 mx-auto"
+              animate={{ 
+                boxShadow: [
+                  "0 0 0px rgba(91, 47, 209, 0)",
+                  "0 0 20px rgba(91, 47, 209, 0.5)",
+                  "0 0 0px rgba(91, 47, 209, 0)"
+                ]
+              }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+            ></motion.div>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p
@@ -132,11 +281,35 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            We make IT feel safe, not scary. Full transparency from day one - you'll know exactly what we do for you. 
-            Like Apple, we're competent. Like family, we're nurturing. Your business deserves both.
+            IT should be easy and safe, we keep it that way. 
+            With full transparency from day one, you'll know exactly what you're getting and when you're getting it.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Tagline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: 1, 
+              y: 0,
+              textShadow: [
+                "0 0 0px rgba(255,255,255,0)",
+                "0 0 20px rgba(255,255,255,0.3)",
+                "0 0 0px rgba(255,255,255,0)"
+              ]
+            }}
+            transition={{ 
+              opacity: { duration: 0.8, delay: 0.4 },
+              y: { duration: 0.8, delay: 0.4 },
+              textShadow: { duration: 3, repeat: Infinity, delay: 1 }
+            }}
+            className="text-lg md:text-xl lg:text-2xl font-medium text-primary-200 italic mb-8"
+          >
+            Competence & Protection
+            <br />
+            Your company deserves both.
+          </motion.div>
+
+          {/* Enhanced CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,23 +317,30 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 20px 40px rgba(91, 47, 209, 0.3)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-3"
+              className="relative bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center space-x-3 overflow-hidden"
             >
-              <Shield className="w-5 h-5" />
-              <span>START YOUR JOURNEY</span>
-              <ArrowRight className="w-5 h-5" />
+              {/* Animated background effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                initial={{ x: "-100%" }}
+                animate={{ x: "100%" }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              ></motion.div>
+              <Shield className="w-5 h-5 relative z-10" />
+              <span className="relative z-10">Busy? Have us call you!</span>
+              <motion.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowRight className="w-5 h-5 relative z-10" />
+              </motion.div>
             </motion.button>
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-transparent border-2 border-primary-400 hover:border-primary-300 text-primary-300 hover:text-primary-200 font-bold text-lg px-10 py-4 rounded-lg transition-all duration-300 flex items-center space-x-3"
-            >
-              <Play className="w-5 h-5" />
-              <span>VIEW DEMO</span>
-            </motion.button>
           </motion.div>
 
           {/* Feature Highlights */}
@@ -206,12 +386,12 @@ const Hero = () => {
           >
             {[
               { number: '100%', label: 'Transparent Process' },
-              { number: '24/7', label: 'Nurturing Support' },
+              { number: '24/7', label: 'Monitoring Support' },
               { number: '4', label: 'Purpose-Driven Plans' },
               { number: '∞', label: 'Peace of Mind' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-yellow-100 mb-2">
                   {stat.number}
                 </div>
                 <div className="text-white/80">{stat.label}</div>

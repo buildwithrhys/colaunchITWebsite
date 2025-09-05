@@ -40,7 +40,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="section-padding bg-gradient-to-b from-gray-900 via-gray-800 to-gray-800">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Content */}
@@ -55,17 +55,17 @@ const About = () => {
               <span>About coLaunch IT</span>
             </div>
             
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
               IT Management That Scales With Your Business
             </h2>
             
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              coLaunch IT specializes in comprehensive IT subscription services designed to keep your business 
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+              coLaunch IT specialises in comprehensive IT subscription services designed to keep your business 
               running smoothly and securely. From our Ignition plan for basic IT management to our AutoPilot 
               tier with dedicated IT leadership, we have a solution for every business size.
             </p>
 
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Our innovative coLaunchTV reception display system adds another dimension to our offerings, 
               helping businesses create engaging customer experiences while generating additional revenue 
               through local advertising opportunities.
