@@ -14,7 +14,7 @@ import {
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behaviour: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const footerLinks = {

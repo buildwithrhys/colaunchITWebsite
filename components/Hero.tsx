@@ -5,7 +5,7 @@ import { ArrowRight, Play, ChevronDown, Shield, Users, Zap, Target, Heart } from
 const Hero = () => {
 
   const scrollToServices = () => {
-    document.getElementById('services')?.scrollIntoView({ behaviour: 'smooth' })
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
