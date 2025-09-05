@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Bricolage_Grotesque, Inter } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const bricolageGrotesque = Bricolage_Grotesque({ 
+  subsets: ['latin'],
+  variable: '--font-bricolage-grotesque',
+  display: 'swap'
+})
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap'
+})
 
 export const metadata: Metadata = {
   title: 'coLaunch IT - Modern IT Solutions & Digital Transformation',
@@ -29,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+      <body className={`${bricolageGrotesque.variable} ${inter.variable} font-sans`}>
         {children}
       </body>
     </html>
